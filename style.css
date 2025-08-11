@@ -3,8 +3,8 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 20px;
-  background: #121212;
-  color: #eee;
+  background: #000;
+  color: #fff;
   line-height: 1.6;
   font-size: 22px;
 }
@@ -17,26 +17,29 @@ header {
 h1 {
   font-size: 3em;
   margin-bottom: 10px;
+  color: orange;
 }
 
 h2 {
   font-size: 2.4em;
   margin-bottom: 20px;
+  color: orange;
 }
 
 button {
-  background-color: #e91e63;
+  background-color: orange;
   border: none;
   padding: 14px 28px;
-  color: white;
+  color: black;
   cursor: pointer;
   border-radius: 6px;
   font-size: 1.2em;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #ad1457;
+  background-color: #ff8c00;
 }
 
 input, form input {
@@ -57,14 +60,15 @@ input, form input {
 }
 
 .productCard {
-  background: #222;
+  background: orange;
   padding: 18px;
   border-radius: 12px;
   width: 260px;
   box-sizing: border-box;
-  box-shadow: 0 0 12px #e91e63aa;
+  box-shadow: 0 0 12px orange;
   transition: transform 0.2s ease;
   text-align: center;
+  color: black;
 }
 
 .productCard:hover {
@@ -80,6 +84,7 @@ input, form input {
 .productCard h3 {
   margin: 10px 0 8px;
   font-size: 1.6em;
+  font-weight: bold;
 }
 
 .productCard p {
@@ -89,22 +94,24 @@ input, form input {
 
 .productCard .price {
   font-weight: bold;
-  color: #e91e63;
+  color: black;
   margin: 12px 0;
   font-size: 1.4em;
 }
 
 .buyBtn {
-  background-color: #4CAF50;
+  background-color: black;
   padding: 12px;
   font-size: 1.1em;
   border-radius: 6px;
   display: inline-block;
-  color: white;
+  color: orange;
   text-decoration: none;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .buyBtn:hover {
-  background-color: #388E3C;
-  }
+  background-color: orange;
+  color: black;
+}
