@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administração - Elite Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Área do Administrador</h1>
+
+  <div id="loginDiv">
+    <p>Digite a senha para acessar a área administrativa:</p>
+    <input type="password" id="passwordInput" placeholder="Senha" />
+    <button id="loginBtn">Entrar</button>
+    <p id="loginMsg" style="color: red;"></p>
+  </div>
+
+  <div id="adminContent" style="display:none;">
+    <h2>Adicionar Produto</h2>
+    <form id="productForm">
+      <input type="text" id="productName" placeholder="Nome do Produto" required /><br/>
+      <input type="text" id="productDesc" placeholder="Descrição" required /><br/>
+      <input type="number" id="productPrice" placeholder="Preço (R$)" required /><br/>
+      <input type="text" id="productImg" placeholder="URL da Imagem (opcional)" /><br/>
+      <button type="submit">Adicionar Produto</button>
+    </form>
+    <button id="logoutBtn">Sair</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const passwordCorrect = "hackerkira12345";
+
+    const loginDiv = document.getElementById("loginDiv");
+    const adminContent = document.getElementById("adminContent");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginMsg = document.getElementById("loginMsg");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Verifica se admin está logado via sessionStorage
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      showAdminContent();
+    }
+
+    loginBtn.onclick = () => {
+      const pass = document.getElementById("passwordInput").value;
+      if (pass === passwordCorrect) {
+        sessionStorage.setItem("loggedIn", "true");
+        showAdminContent();
+      } else {
+        loginMsg.textContent = "Senha incorreta!";
+      }
+    };
+
+    logoutBtn.onclick = () => {
+      sessionStorage.removeItem("loggedIn");
+      location.reload();
+    };
+
+    function showAdminContent() {
+      loginDiv.style.display = "none";
+      adminContent.style.display = "block";
+    }
+
+    // Lida com o envio do formulário para adicionar produto
+    const form = document.getElementById("productForm");
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      const name = document.getElementById("productName").value.trim();
+      const desc = document.getElementById("productDesc").value.trim();
+      const price = parseFloat(document.getElementById("productPrice").value);
+      const img = document.getElementById("productImg").value.trim();
+
+      if (!name || !desc || isNaN(price)) {
+        alert("Preencha todos os campos corretamente!");
+        return;
+      }
+
+      // Pega produtos atuais do localStorage
+      let products = JSON.parse(localStorage.getItem("products")) || [];
+
+      // Adiciona novo produto
+      products.push({ name, desc, price, img });
+
+      // Salva de volta
+      localStorage.setItem("products", JSON.stringify(products));
+
+      alert("Produto adicionado!");
+
+      form.reset();
+    };
+  </script>
+</body>
+  </html>
