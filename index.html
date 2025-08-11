@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elite Shop - Vendas Free Fire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Elite Shop</h1>
+    <p>Vendas de contas, diamantes, skins e muito mais do Free Fire</p>
+    <button id="adminBtn">Área do Administrador</button>
+  </header>
+
+  <main>
+    <h2>Produtos disponíveis</h2>
+    <div id="productList">
+      <!-- Produtos aparecerão aqui -->
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('adminBtn').onclick = () => {
+      window.location.href = 'admin.html';
+    };
+    loadProducts();
+  </script>
+</body>
+</html>
