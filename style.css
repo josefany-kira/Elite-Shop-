@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: #121212;
+  color: #eee;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #e91e63;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ad1457;
+}
+
+input, form input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box;
+}
+
+#productList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.productCard {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.productCard img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.productCard h3 {
+  margin: 10px 0 5px;
+}
+
+.productCard p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.productCard .price {
+  font-weight: bold;
+  color: #e91e63;
+  margin-top: 10px;
+}
