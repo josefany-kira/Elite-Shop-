@@ -26,7 +26,7 @@ function loadProducts() {
       ${imgTag}
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
-      <div class="price">R$ ${p.price.toFixed(2)}</div>
+      <div class="price">Kz ${p.price.toFixed(2)}</div>
     `;
 
     productList.appendChild(card);
