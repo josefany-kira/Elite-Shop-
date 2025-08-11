@@ -15,20 +15,18 @@ function loadProducts() {
     const card = document.createElement("div");
     card.className = "productCard";
 
-    let imgTag = "";
-    if (p.img) {
-      imgTag = `<img src="${p.img}" alt="${p.name}">`;
-    } else {
-      imgTag = `<img src="https://via.placeholder.com/200x120?text=Sem+Imagem" alt="Sem imagem">`;
-    }
+    let imgTag = p.img
+      ? `<img src="${p.img}" alt="${p.name}">`
+      : `<img src="https://via.placeholder.com/260x160?text=Sem+Imagem" alt="Sem imagem">`;
 
     card.innerHTML = `
       ${imgTag}
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
       <div class="price">Kz ${p.price.toFixed(2)}</div>
+      <a class="buyBtn" href="https://wa.me/244999999999?text=Quero%20comprar%20o%20produto:%20${encodeURIComponent(p.name)}" target="_blank">Comprar</a>
     `;
 
     productList.appendChild(card);
   });
-        }
+      }
